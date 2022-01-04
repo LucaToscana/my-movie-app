@@ -5,8 +5,10 @@ import { BsPeopleFill } from "react-icons/bs";
 import { FiMonitor } from "react-icons/fi";
 import { GiFilmProjector } from "react-icons/gi";
 import { useHistory } from "react-router-dom";
+ 
 
 import styles from "./Tabbar.module.css";
+import { FcFilmReel } from "react-icons/fc";
 
 const Tabbar = ({ navigationData }) => {
   let history = useHistory();
@@ -27,7 +29,7 @@ const Tabbar = ({ navigationData }) => {
   const getTabIcon = useCallback((item) => {
     switch (item) {
       case "Home":
-        return <GiFilmProjector />;
+        return <FcFilmReel></FcFilmReel>;
       case "tv":
         return <FiMonitor />;
      

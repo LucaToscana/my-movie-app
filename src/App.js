@@ -14,6 +14,7 @@ import Navbar from './components/Navbar';
 import Tabbar from './components/Tabbar';
 import MovieCard from './components/movieComponents/movieList/MovieCard';
 import MovieDetail from './view/MovieDetail';
+import MovieView from './view/MovieView';
 function App() {
   //const { currentRoute, setCurrentRoute } = useNavigation();
 
@@ -36,6 +37,7 @@ localStorage.setItem('my_favorite',colors)
         <Route path="/" exact component={Home} />
         <Route path="/tv" exact component={Tv} />
         <Route path="/detailMovie" exact component={MovieDetail} />
+        <Route path="/movies" exact component={MovieView} />
       </Switch>
     
       <Tabbar

@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Movies from "../components/movieComponents/movieList/Movies";
 import Pagination from "../Pagination";
-import axios from "axios";
-
+import {AiOutlineSearch}   from "react-icons/ai"
 import getPopularOrSearch from "../service/getPopularOrSearch";
-const Tv = () => {
+const MovieView = () => {
 
  
   const [movies, setMovies] = useState([]);
@@ -13,7 +12,7 @@ const Tv = () => {
   const [movieCount, setMovieCount] = useState(0)
   const [searchTerm, setSearchTerm] = useState('search')
   const [keyword, setKeyword] = useState("")
-  const [dataType, setDataType] = useState("tv")
+  const [dataType, setDataType] = useState("movie")
 
 
   const updateResp = (data) => {
@@ -71,6 +70,8 @@ const Tv = () => {
         )
 
       setCurrentPage(currentPage - 1);
+
+    //  window.location.reload()
     }
   }
 
@@ -96,17 +97,22 @@ const Tv = () => {
 
     ;
   return (
-    <div >
-     <div className=" m-2 h-20 p-5  flex justify-between rounded-full bg-gradient-to-r from-purple-400 to-orange-400 ">
+    <div ><div className=" m-2 h-20 p-5  flex justify-between rounded-full bg-gradient-to-r from-purple-400 to-orange-400 ">
    
-   <h2 className="font-mono text-white text-4xl	">TV</h2>   <input id="myTextInput" className="border-solid border-gray-300 border py-2 px-4 w-48 
-     rounded text-gray-700"
-           onChange={(e) => {
-             searchTermChange(e.target.value)
-             setKeyword(e.target.value);
-           }}
-         /></div>
-   {movies!==null? <>  <Pagination
+  <h2 className="font-mono text-white text-4xl	">MOVIE</h2>   <input id="myTextInput" className="border-solid border-gray-300 border py-2 px-4 w-48 
+    rounded text-gray-700"
+          onChange={(e) => {
+            searchTermChange(e.target.value)
+            setKeyword(e.target.value);
+          }}
+        /></div>
+      <div className="flex justify-center">
+   
+       
+      
+      </div>
+   {movies!==null? <> 
+    <Pagination
         moviesPerPage={moviesPerPage}
         totalMovies={movieCount}
         paginate={paginate}
@@ -114,10 +120,10 @@ const Tv = () => {
         paginateBack={paginateBack}
         paginateFront={paginateFront}
       />
-      <Movies movies={movies} dataType={dataType}  />
+      <Movies movies={movies} dataType={dataType} />
       </>:null }
     </div>
   );
 };
 
-export default Tv;
+export default MovieView;

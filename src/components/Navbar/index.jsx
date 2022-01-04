@@ -8,18 +8,20 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <span className={styles.logo}>
-      { <FcFilmReel></FcFilmReel>
-      }
+      <a
+           href="/"
+          >  { <FcFilmReel></FcFilmReel>
+      }</a>
       </span>
       <ul className={styles.navItems}>
         
           <a
             className={classNames([
               styles.navItem,
-              window.location.pathname  === "/" && styles.selectedNavItem  ])}
-           href="/"
+              window.location.pathname  === "/movies" && styles.selectedNavItem  ])}
+           href="/movies"
           >
-        Home
+        movies
           </a>
           <a
             className={classNames([
@@ -28,7 +30,7 @@ const Navbar = () => {
             ])}
            href="/tv"
           >
-        Tv
+        tv
           </a>
       </ul>
       <button className={styles.actions}>Favorite { window.location.pathname  }</button>
