@@ -1,0 +1,23 @@
+.navbar {
+  @apply hidden md:flex flex-row items-center justify-between px-8  rounded-b-3xl bg-white;
+}
+
+.logo {
+  @apply text-5xl text-purple-800 -mb-1;
+}
+
+.navItems {
+  @apply flex flex-row self-end h-12;
+}
+
+.navItem {
+  @apply  text-gray-400 hover:font-extrabold hover:text-green-500 text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 cursor-pointer  m-3 font-medium tracking-wide text-sm flex items-start justify-center;
+}
+
+.selectedNavItem {
+  @apply font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600;
+}
+
+.actions {
+  @apply bg-white hover:bg-green-500 border-2 border-green-900 text-sm text-green-900 py-3 px-5 rounded-lg font-medium tracking-wide leading-none;
+}
