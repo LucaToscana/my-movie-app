@@ -44,13 +44,13 @@ const MovieCard = ({ movies ,dataType}) => {
                         : null}
                 </div>
                 {<div className='grid grid-flow grid-cols-2 '>
-                    {movies.poster_path !== null ? <Link
+                <div className="w-full h-full rounded-2xl ">       {movies.poster_path !== null ? <Link
                         to={{
                             pathname: "/detailMovie",
                             state: { id: movies.id , dataType:dataType}
                         }}>
                         <div ><img className=" rounded-2xl" src={img_path + movies.poster_path} alt={movies.original_title} />
-                        </div> </Link> : null}
+                        </div> </Link> : null}</div>
 
                     <div className="m-3 h-48" > <p className="text-sm ">{truncate(movies.overview)}</p>
                     </div>

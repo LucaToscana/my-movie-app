@@ -1,5 +1,5 @@
 import React from "react";
-//import { CgMonday } from "react-icons/cg";
+import { FcFilmReel } from "react-icons/fc";
 import classNames from "classnames";
 
 import styles from "./Navbar.module.css";
@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <span className={styles.logo}>
-      { "gggggg" //<CgMonday />jjjjjj
+      { <FcFilmReel></FcFilmReel>
       }
       </span>
       <ul className={styles.navItems}>

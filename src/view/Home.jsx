@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Movies from "../components/movieComponents/movieList/Movies";
 import Pagination from "../Pagination";
-import axios from "axios";
-
+import {AiOutlineSearch}   from "react-icons/ai"
 import getPopularOrSearch from "../service/getPopularOrSearch";
 const Tv = () => {
 
@@ -98,18 +97,18 @@ const Tv = () => {
 
     ;
   return (
-    <div >
-      <div className="flex justify-center">
-
-        <button className="bg-sky-600 hover:bg-sky-700 ">
-          TV</button>
-        <input id="myTextInput" className="border-solid border-gray-300 border py-2 px-4 w-48 
+    <div ><div className="m-5 h-16 p-5 flex justify-between rounded-full bg-gradient-to-r from-purple-400 to-pink-400 ">
+    <p className="font-mono text-white">MOVIE</p>  <input id="myTextInput" className="border-solid border-gray-300 border py-2 px-4 w-48 
     rounded text-gray-700"//autofocus="autofocus"
           onChange={(e) => {
             searchTermChange(e.target.value)
             setKeyword(e.target.value);
           }}
-        />
+        /></div>
+      <div className="flex justify-center">
+   
+       
+      
       </div>
    {movies!==null? <>  <Pagination
         moviesPerPage={moviesPerPage}

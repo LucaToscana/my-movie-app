@@ -1,9 +1,9 @@
 
 import React, { useCallback } from "react";
 import classNames from "classnames";
-import { AiFillHome, AiFillCompass } from "react-icons/ai";
-//import { BsFillBagFill, BsFillPersonFill } from "react-icons/bs";
-//import { CgInbox } from "react-icons/cg";
+import { BsPeopleFill } from "react-icons/bs";
+import { FiMonitor } from "react-icons/fi";
+import { GiFilmProjector } from "react-icons/gi";
 import { useHistory } from "react-router-dom";
 
 import styles from "./Tabbar.module.css";
@@ -17,17 +17,28 @@ const Tabbar = ({ navigationData }) => {
         return "/";
       case "tv":
         return "/tv";
+        case "movies":
+          return "/movies";
+        case "actors":
+            return "/actors";
      
     }
   }, []);
   const getTabIcon = useCallback((item) => {
     switch (item) {
       case "Home":
-        return <AiFillHome />;
+        return <GiFilmProjector />;
       case "tv":
-        return <AiFillCompass />;
+        return <FiMonitor />;
      
-    }
+    
+    case "movies":
+      return <GiFilmProjector />;
+    case "actors":
+      return <BsPeopleFill />;
+   
+  }
+    
   }, []);
 
   return (
