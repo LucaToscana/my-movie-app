@@ -18,6 +18,7 @@ import MovieView from './view/MovieView';
 import Actors from './view/ActorView';
 import Artists from './components/actorsComponents/Artists';
 import ArtistDetail from './view/ArtisDetail';
+import FavoriteView from './view/FavoriteView';
 function App() {
   //const { currentRoute, setCurrentRoute } = useNavigation();
 
@@ -44,6 +45,10 @@ localStorage.setItem('my_favorite',colors)
         <Route path="/actors" exact component={Actors} />
         <Route path="/detailArtist" exact component={ArtistDetail} />
 
+        <Route path="/favorite" exact component={FavoriteView} />
+
+
+        
       </Switch>
     
       <Tabbar

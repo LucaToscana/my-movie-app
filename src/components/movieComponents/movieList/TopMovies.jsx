@@ -19,7 +19,7 @@ const Movies = ({ movies ,dataType}) => {
 
   return (
     <div >
-    { movies!==null? <div className="grid grid-flow-row-dense grid-cols-3 grid-rows-1 ">
+    { movies!==null? <div className="grid  grid-cols-3 grid-rows-1 ">
         
         {movies.slice(0,3).map((movies) => (
           <TopMovieCard movies={movies} dataType={dataType}></TopMovieCard>

@@ -1,1 +1,1 @@
-export default ["Home", "tv","movies","actors"];
+export default ["Home", "tv","movies","actors","favorite"];

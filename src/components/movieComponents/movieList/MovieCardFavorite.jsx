@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FavoriteIcone from "../../FavoriteIcone";
 import { Link } from "react-router-dom";
-const MovieCard = ({ movies, dataType }) => {
+const MovieCardFavorite = ({ movies, dataType }) => {
     const [video, setVideo] = useState([])
     const [videoUrl, setVideoUrl] = useState([])
     const [id, setId] = useState(movies.id)
@@ -9,9 +9,9 @@ const MovieCard = ({ movies, dataType }) => {
     const img_path = "https://image.tmdb.org/t/p/w185_and_h278_bestv2/";
 
     const truncate = (str) => {
-        var len = 100;
+        var len = 120;
         if (str) {
-            if (str.length >= 100) {
+            if (str.length >= 120) {
                 return str.substring(0, len) + "...";
             }
             return str;
@@ -32,15 +32,14 @@ const MovieCard = ({ movies, dataType }) => {
                     {movies.first_air_date !== undefined ? <div><p className="underline decoration-blue-500 text-sm	"> {movies.first_air_date.substring(0, 4)}</p></div>
                         : null}
                 </div>
-                {<div className='grid grid-flow grid-cols-2 mt-4'>
-                    <div className="w-full h-full rounded-2xl ">  
-                         <Link
+                {<div className='grid grid-flow-row-dense grid-cols-2 grid-rows-4'>
+                    <div className="w-full h-full rounded-2xl ">       {movies.poster_path !== null ? <Link
                         to={{
                             pathname: "/detailMovie",
                             state: { id: movies.id, dataType: dataType }
-                        }}>{movies.poster_path !== null ? 
+                        }}>
                         <div ><img className=" rounded-2xl" src={img_path + movies.poster_path} alt={movies.original_title} />
-                        </div>  : <img className=" rounded-2xl" src={process.env.PUBLIC_URL + "/popcorn.png"} />}</Link></div>
+                        </div> </Link> : null}</div>
 
                     <div className="m-3 h-48 w-full p-1" > <p className="text-xs">{truncate(movies.overview)}</p>
                     </div>
@@ -53,4 +52,4 @@ const MovieCard = ({ movies, dataType }) => {
     );
 };
 
-export default MovieCard;
+export default MovieCardFavorite;

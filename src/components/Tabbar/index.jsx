@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
  
 
 import styles from "./Tabbar.module.css";
-import { FcFilmReel } from "react-icons/fc";
+import { FcFilmReel, FcLike } from "react-icons/fc";
 
 const Tabbar = ({ navigationData }) => {
   let history = useHistory();
@@ -23,6 +23,8 @@ const Tabbar = ({ navigationData }) => {
           return "/movies";
         case "actors":
             return "/actors";
+            case "favorite":
+            return "/favorite";
      
     }
   }, []);
@@ -38,6 +40,8 @@ const Tabbar = ({ navigationData }) => {
       return <GiFilmProjector />;
     case "actors":
       return <BsPeopleFill />;
+      case "favorite":
+        return  <FcLike />;
    
   }
     
@@ -49,8 +53,8 @@ const Tabbar = ({ navigationData }) => {
         <span
           key={index}
           className={classNames([
-            styles.tabItem/*,
-            currentRoute === item && styles.tabItemActive,*/
+            styles.tabItem,
+        //    window.location.pathname === "/"+item && styles.tabItemActive,
           ])}
           onClick={() => history.push(getUrl(item))}
         >

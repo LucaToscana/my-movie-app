@@ -6,7 +6,7 @@ import { addFavorite, removeFavorite } from '../features/favoriteMovies/favorite
 
 
 
-const FavoriteIcone = ({ idMovie }) => {
+const FavoriteIcone = ({ idMovie, dataType, img, name }) => {
   const [like, setLike] = useState(false);
   const [id, setId] = useState(idMovie)
   const favorite = useSelector(state => state.favorite.value)
@@ -15,34 +15,37 @@ const FavoriteIcone = ({ idMovie }) => {
   useEffect(() => {
     if (favorite.find(estFavorite)) {
       setLike(true)
-    
-    }else{      setLike(false)
+
+    } else {
+      setLike(false)
     }
-  }, [idMovie,like]);
+  }, [idMovie, like]);
 
 
   function estFavorite(element) {
-var test =false
-    if (element === idMovie) {
+    var test = false
+    if (element.idMovie === idMovie &&
+      element.dataType === dataType
+    ) {
       setLike(true)
-      test= true
+      test = true
     }
     return test
   }
   return (
 
     <div className="mt-5">
-      {like===true?<div className="mt-5">
+      {like === true ? <div className="mt-5">
         <FcLike onClick={() => {
-          dispatch(removeFavorite(idMovie))
+          dispatch(removeFavorite({ idMovie, dataType, img, name }))
           setLike(false)
         }
         }></FcLike></div>
-    :<div className="mt-5"><AiOutlineHeart onClick={() => {
-        dispatch(addFavorite(idMovie))
-        setLike(true)
-      }} ></AiOutlineHeart></div>}
-    
+        : <div className="mt-5"><AiOutlineHeart onClick={() => {
+          dispatch(addFavorite({ idMovie, dataType, img, name }))
+          setLike(true)
+        }} ></AiOutlineHeart></div>}
+
 
     </div>
 
