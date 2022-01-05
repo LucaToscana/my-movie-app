@@ -4,9 +4,7 @@ import FavoriteIcone from "../../FavoriteIcone";
 import MovieCard from "./MovieCard";
 
 const Movies = ({ movies ,dataType}) => {
-  const [video, setVideo] = useState([])
-  const [videoUrl, setVideoUrl] = useState([])
-  const [id, setId] = useState(movies.id)
+
 
 
 

@@ -15,7 +15,6 @@ https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US*/
     .then(res => {
         
         
-        
         return  res.data
     
     

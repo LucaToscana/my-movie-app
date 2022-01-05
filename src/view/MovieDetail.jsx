@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import getDetails from "../service/GetDetails";
 import getCredits from "../service/GetCredits";
 
@@ -80,7 +80,10 @@ const MovieDetail = () => {
 
             </div>
             <div className="m-3 flex justify-center text-justify	">  
-               <article className="prose lg:prose-xl prose-a:text-blue-600 hover:prose-a:text-blue-500  max-w-none">
+              
+              
+              
+               <article className="prose lg:prose-xl prose-a:text-blue-600 hover:prose-a:text-blue-500  ">
 
   
   <p>
@@ -100,13 +103,17 @@ const MovieDetail = () => {
                 </div>
             </div>
             </article></div>
-            <div className="grid grid-flow grid-cols-4 ">
+            
+            <div className="grid grid-flow grid-cols-4 m-3 ">
 
                 {cast.slice(0, 10).map(cast => (
-                    <div className="m-3">                {cast.profile_path ?
-                        <> <img  className="rounded-2xl " src={img_cast + cast.profile_path} alt={cast.name} /><small key={cast.name}
-                         className="font-normal rounded-2xl  leading-normal mt-0 mb-4 text-purple-800">{cast.name}</small> </> :
-                        <small key={cast.name} className="font-normal leading-normal mt-0 mb-4 text-purple-800">{cast.name}</small> //    <small key={cast.name} className="font-normal leading-normal mt-0 mb-4 text-purple-800">{cast.name}</small>
+                    <div className="m-3 ">          {cast.profile_path ?
+                        <>   <Link
+                        to={{
+                            pathname: "/detailArtist",
+                            state: {actors: cast, dataType: "person", kf: cast.known_for  }
+                        }}><img  className="rounded-2xl " src={img_cast + cast.profile_path} alt={cast.name} /> <div><p className=" underline decoration-green-500"> {cast.name}</p></div> </Link></> :
+                        <p key={cast.name} className="underline decoration-green-500">{cast.name}</p> //    <small key={cast.name} className="font-normal leading-normal mt-0 mb-4 text-purple-800">{cast.name}</small>
                     }
                     </div>
                 ))}            </div>

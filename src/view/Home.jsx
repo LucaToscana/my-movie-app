@@ -3,13 +3,20 @@ import Movies from "../components/movieComponents/movieList/Movies";
 import Pagination from "../Pagination";
 import {AiOutlineSearch}   from "react-icons/ai"
 import getPopularOrSearch from "../service/getPopularOrSearch";
+import getPopularOrSearchActor from "../service/GetPopularOrSearchActor";
 import { FcFilm, FcFilmReel } from "react-icons/fc";
 import TopMovies from "../components/movieComponents/movieList/TopMovies";
 import { GiFilmProjector } from "react-icons/gi";
 import { FiMonitor } from "react-icons/fi";
+import axios from "axios";
+import TopActors from "../components/actorsComponents/TopActors";
+import { BsPeopleFill } from "react-icons/bs";
 const Tv = () => {
+const endUrl = "https://api.themoviedb.org/3"
+const api_key = '1ef9fd0ce00ab1df135c8453b7222865'
 
   const [tv, setTv] = useState([]);
+  const [act, setAct] = useState([]);
 
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -43,6 +50,12 @@ const Tv = () => {
   }
 
 
+  const updateRespAct = (data) => {
+    setAct(data.results)
+    
+  }
+
+
   useEffect(() => {
     getPopularOrSearch(dataType, searchTerm, keyword, currentPage)
       .then(res => {
@@ -57,9 +70,21 @@ const Tv = () => {
           if(res.status!==404)
         {  updateRespTv(res)
           
-        }}
-          )
-  }, [keyword, currentPage, dataType, searchTerm,keywordTv]);
+        }})
+      
+        getPopularOrSearchActor( searchTerm, keywordAct)
+        .then(res => {
+          if(res.status!==404)
+        {  updateRespAct(res)
+          
+        }})
+
+
+
+
+
+        
+  }, [keywordAct,keyword, currentPage, dataType, searchTerm,keywordTv]);
   
 
 
@@ -91,7 +116,7 @@ const Tv = () => {
       <div className=" m-2 h-20 p-5  flex justify-between rounded-full bg-gradient-to-r from-purple-400 to-orange-400 ">
    
    <h2 className="font-mono text-white text-5xl	"><FiMonitor></FiMonitor></h2>   
-   <input id="myTextInput2" className="border-solid border-gray-300 border py-2 px-4 w-48 
+   <input  className="border-solid border-gray-300 border py-2 px-4 w-48 
      rounded text-gray-700"
            onChange={(e) => {
              setKeywordTv(e.target.value);
@@ -104,23 +129,22 @@ const Tv = () => {
        </div>
    
        <TopMovies movies={tv} dataType={'tv'} />
+    
        <div className=" m-2 h-20 p-5  flex justify-between rounded-full bg-gradient-to-r from-purple-400 to-orange-400 ">
-   {/*
-   <h2 className="font-mono text-white text-5xl	"><FiMonitor></FiMonitor></h2>  
-    <input id="myTextInput3" className="border-solid border-gray-300 border py-2 px-4 w-48 
+  
+   <h2 className="font-mono text-white text-5xl	"><BsPeopleFill /></h2>  
+    <input  className="border-solid border-gray-300 border py-2 px-4 w-48 
      rounded text-gray-700"
            onChange={(e) => {
-             searchTermChange(e.target.value)
-             setKeyword(e.target.value);
+             setKeywordAct(e.target.value);
            }}
          /></div>
-       <div >
-    
-        
-          */}
-       </div>
-   
-       <TopMovies movies={movies} dataType={dataType} />
+       
+ 
+ 
+     <TopActors actors={act} dataType={"people"} />
+     
+    <div className="mt-16"></div>
     </div>
   );
 };

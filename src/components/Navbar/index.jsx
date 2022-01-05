@@ -32,6 +32,16 @@ const Navbar = () => {
           >
         tv
           </a>
+          <a
+            className={classNames([
+              styles.navItem,
+              window.location.pathname  === "/actors" && styles.selectedNavItem  ,
+            ])}
+           href="/actors"
+          >
+        actors
+          </a>
+
       </ul>
       <button className={styles.actions}>Favorite { window.location.pathname  }</button>
     </nav>
