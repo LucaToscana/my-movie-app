@@ -34,14 +34,14 @@ const FavoriteIcone = ({ idMovie, dataType, img, name }) => {
   }
   return (
 
-    <div className="mt-5">
-      {like === true ? <div className="mt-5">
+    <div className="mt-2">
+      {like === true ? <div className="mt-2">
         <FcLike onClick={() => {
           dispatch(removeFavorite({ idMovie, dataType, img, name }))
           setLike(false)
         }
         }></FcLike></div>
-        : <div className="mt-5"><AiOutlineHeart onClick={() => {
+        : <div className="mt-2"><AiOutlineHeart onClick={() => {
           dispatch(addFavorite({ idMovie, dataType, img, name }))
           setLike(true)
         }} ></AiOutlineHeart></div>}

@@ -16,7 +16,7 @@ const Movies = ({ movies ,dataType}) => {
 
   return (
     <div className="flex justify-center">
-    { movies!==null? <div className="grid grid-flow-row-dense grid-cols-2 grid-rows-4 ">
+    { movies!==null? <div className="flex flex-wrap  gap-4 flex justify-center ">
         
         {movies.map((movies) => (
           <MovieCard movies={movies} dataType={dataType}></MovieCard>

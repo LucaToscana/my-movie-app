@@ -17,7 +17,7 @@ import MovieDetail from './view/MovieDetail';
 import MovieView from './view/MovieView';
 import Actors from './view/ActorView';
 import Artists from './components/actorsComponents/Artists';
-import ArtistDetail from './view/ArtisDetail';
+import ArtistDetail from './view/ArtistDetail';
 import FavoriteView from './view/FavoriteView';
 function App() {
   //const { currentRoute, setCurrentRoute } = useNavigation();
@@ -36,7 +36,7 @@ localStorage.setItem('my_favorite',colors)
     <div >  <BrowserRouter>
       <Navbar
         navigationData={navigationData}
-      />
+      /> 
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/tv" exact component={Tv} />

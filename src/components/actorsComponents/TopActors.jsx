@@ -17,9 +17,9 @@ const TopActors = ({ actors ,dataType}) => {
 
   return (
     <div >
-    { actors!==null? <div className="grid grid-flow-row-dense grid-cols-3 grid-rows-1 ">
+    { actors!==null? <div className="flex flex-wrap  gap-4 flex justify-center ">
         
-        {actors.slice(0,3).map((actors) => (
+        {actors.slice(0,6).map((actors) => (
           <TopActorCard actors={actors} dataType={dataType}></TopActorCard>
         ))
 

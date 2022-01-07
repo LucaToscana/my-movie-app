@@ -99,10 +99,9 @@ const Tv = () => {
     <div >
      <div className=" m-2 h-20 p-5  flex justify-between rounded-full bg-gradient-to-r from-purple-400 to-orange-400 ">
    
-   <h2 className="font-mono text-white text-4xl	">TV</h2>   <input id="myTextInput" className="border-solid border-gray-300 border py-2 px-4 w-48 
+   <h2 className="font-mono text-white text-4xl	">TV</h2>   <input id="myTextInput" className="border-solid border-gray-300 border py-2 px-4 w-1/3
      rounded text-gray-700"
            onChange={(e) => {
-             searchTermChange(e.target.value)
              setKeyword(e.target.value);
            }}
          /></div>

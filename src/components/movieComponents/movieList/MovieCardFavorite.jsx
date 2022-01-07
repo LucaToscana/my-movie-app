@@ -29,7 +29,7 @@ const MovieCardFavorite = ({ movies, dataType }) => {
                     
                     
                      <div className="w-50"><p  className="underline decoration-blue-500 ">{movies.title}{movies.name}</p> </div>
-                    {movies.first_air_date !== undefined ? <div><p className="underline decoration-blue-500 text-sm	"> {movies.first_air_date.substring(0, 4)}</p></div>
+                    {movies.first_air_date !== undefined ? <div><p className="underline decoration-blue-500 text-sm	">  {movies.first_air_date.substring(0, 4)}</p></div>
                         : null}
                 </div>
                 {<div className='grid grid-flow-row-dense grid-cols-2 grid-rows-4'>

@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import getDetails from "../service/GetDetails";
 import getCredits from "../service/GetCredits";
+import FavoriteIcone from "../components/FavoriteIcone";
 
 const MovieDetail = () => {
     const img_path = "https://image.tmdb.org/t/p/w300_and_h450_bestv2";
@@ -27,7 +28,6 @@ const MovieDetail = () => {
             .then(res => {
                 if (res !== null) {
                     setMovie(res)
-                    
                     if(res.first_air_date!==undefined){
 
                   var year =       res.first_air_date.substring(0,4)
@@ -75,6 +75,12 @@ const MovieDetail = () => {
 
 
         </div>
+        <div className="p-3  flex justify-end ">
+                <span className="p-3 m-2">     <FavoriteIcone idMovie={movie.id}
+                    dataType={movie.name === undefined ? "movie" : "tv"} img={movie.poster_path}
+                    name={movie.name === undefined ? movie.title : movie.name}>
+                </FavoriteIcone> </span>
+            </div>
             <div className="m-3 flex justify-center">
                 {movie.poster_path ? <img className="rounded-2xl " src={img_path + movie.poster_path} alt={movie.original_title} /> : <div >no image  </div>}
 

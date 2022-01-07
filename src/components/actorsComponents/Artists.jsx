@@ -16,7 +16,7 @@ const Artists = ({ artists ,dataType}) => {
 
   return (
     <div className="flex justify-center">
-    { artists!==null? <div className="grid grid-flow-row-dense grid-cols-2 grid-rows-4 ">
+    { artists!==null? <div className="flex flex-wrap  gap-4 flex justify-center ">
         
         {artists.map((artists) => (
           <TopActorCard actors={artists} dataType={dataType}></TopActorCard>
