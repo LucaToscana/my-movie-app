@@ -30,7 +30,11 @@ const MovieCard = ({ movies, dataType }) => {
                     
                      <div className="w-50 "><p  className=" "><h4 class=" text-sm font-semibold uppercase leading-tight ">{movies.title}{movies.name}</h4></p> </div>
                     {movies.first_air_date !== undefined ? <div><p className="underline decoration-blue-500 text-sm	"> {movies.first_air_date.substring(0, 4)}</p></div>
-                        : <div><p className="underline decoration-blue-500 text-sm	"> {movies.release_date.substring(0, 4)}</p></div>}
+                        : <div><p className="underline decoration-blue-500 text-sm	"> 
+                        </p></div>}
+                        {movies.release_date !== undefined ? <div><p className="underline decoration-blue-500 text-sm	"> {movies.release_date.substring(0, 4)}</p></div>
+                        : <div><p className="underline decoration-blue-500 text-sm	"> 
+                        </p></div>}
                 </div>
                 {<div className='grid grid-flow grid-cols-2 mt-4'>
                     <div className="w-full h-full rounded-2xl ">  
